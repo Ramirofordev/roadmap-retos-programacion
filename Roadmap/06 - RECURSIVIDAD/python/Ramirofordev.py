@@ -21,9 +21,9 @@ print(fact_number(5))
 def recursive_fibonacci(n: int):
      if n == 0 or n == 1:
           return n
+     elif n == 2:
+          return 1
      else:
         return recursive_fibonacci(n - 1) + recursive_fibonacci(n - 2)
      
-n = 10
-for i in range(0, n + 1):
-     print(recursive_fibonacci(i))
+print(recursive_fibonacci(5))
