@@ -7,10 +7,24 @@ Empleando tu lenguaje, explora la definicion del tipo de dato que sirva para def
 Crea un Enum que represente los dias de la semana del lunes al domingo, en ese orden. Con ese enumerado, crea una operacion que muestre el nombre del dia de la semana dependienod del numero entero utilizando (del 1 al 7)
 '''
 
+# Con una lista y enumerate
 week_days = ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo"]
 
 for number, day in enumerate(week_days, start = 1):
     print(f"{number}: {day}")
+
+class Weekdays(Enum):
+    Lunes = 1
+    Martes = 2
+    Miercoles = 3
+    Jueves = 4
+    Viernes = 5
+    Sabado = 6
+    Domingo = 7
+
+for day in range(1 ,8):
+    print(Weekdays(day).name)
+
 
 '''
 Dificultad extra:
@@ -33,7 +47,7 @@ class Estado(Enum):
     Cancelado = 3
 
 class GestionPedidos():
-    def __init__(self, id, estado):
+    def __init__(self, id, estado = Estado.Pendiente):
         self.id = id
         self.estado = estado
 
@@ -41,13 +55,16 @@ class GestionPedidos():
         self.estado = Estado.Pendiente
 
     def enviar(self):
-        self.estado = Estado.Enviado
+        if self.estado == Estado.Pendiente:
+            self.estado = Estado.Enviado
 
     def entregar(self):
-        self.estado = Estado.Entregado
+        if self.estado == Estado.Enviado:
+            self.estado = Estado.Entregado
    
     def cancelado(self):
-        self.estado = Estado.Cancelado
+        if self.estado != Estado.Entregado:
+            self.estado = Estado.Cancelado
 
     def show_estado(self):
         print(f"El estado del producto {self.id}, es: {self.estado.name}")

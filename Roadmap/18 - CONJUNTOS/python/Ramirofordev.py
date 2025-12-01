@@ -31,6 +31,11 @@ for i, elemento in enumerate(new_data):
     data.insert(2 + i, elemento)
 print(data)
 
+"""
+Usando slicing
+data[3:5] = [1, 2, 3, 4]
+"""
+
 # Elimina un elemento de una posicion concreta
 del data[2]
 print(data)
