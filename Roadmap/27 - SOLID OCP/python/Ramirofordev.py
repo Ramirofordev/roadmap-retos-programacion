@@ -42,30 +42,25 @@ class Caluladora:
         self.n1 = n1
         self.n2 = n2
 
-class Suma:
-    @staticmethod
-    def sumar(calculadora): 
-        return calculadora.n1 + calculadora.n2
+class Suma(Caluladora):
+    def sumar(self): 
+        return self.n1 + self.n2
     
-class Resta:
-    @staticmethod
-    def restar(calculadora):
-        return calculadora.n1 - calculadora.n2
+class Resta(Caluladora):
+    def restar(self):
+        return self.n1 - self.n2
     
-class Multiplicacion:
-    @staticmethod
-    def mult(calculadora):
-        return calculadora.n1 * calculadora.n2
+class Multiplicacion(Caluladora):
+    def mult(self):
+        return self.n1 * self.n2
     
-class Division:
-    @staticmethod
-    def div(calculadora):
-        return calculadora.n1 / calculadora.n2
+class Division(Caluladora):
+    def div(self):
+        return self.n1 / self.n2
     
-class Potencias:
-    @staticmethod
-    def pot(calculadora):
-        return calculadora.n1 ** calculadora.n2
+class Potencias(Caluladora):
+    def pot(self):
+        return self.n1 ** self.n2
     
 numeros = Caluladora(10, 5)
 print(Suma.sumar(numeros))
